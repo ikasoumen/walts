@@ -18,22 +18,12 @@
     "rxjs": "^6.0.0",
     "typescript": "^2.1.5"
   },
-  "directories": {
-    "test": "test/"
-  },
+  "main": "dist/index.js",
+  "types": "dist",
   "files": [
-    "index.js",
-    "index.d.ts",
-    "LICENSE",
-    "package.json",
-    "README.md",
-    "src/actions.js",
-    "src/actions.d.ts",
-    "src/dispatcher.js",
-    "src/dispatcher.d.ts",
-    "src/store.js",
-    "src/store.d.ts",
-    "src/utils.js"
+    "test",
+    "dist",
+    "dist/index.js"
   ],
   "homepage": "https://github.com/crescware/walts",
   "keywords": [
@@ -45,7 +35,6 @@
     "rxjs"
   ],
   "license": "MIT",
-  "main": "index.js",
   "peerDependencies": {
     "rxjs": "^6.0.0"
   },
