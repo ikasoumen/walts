@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { AppActions } from './app.actions';
-import { AppDispatcher } from './app.dispatcher';
-import { AppStore, AppState } from './app.store';
+import { AppActions } from "./app.actions";
+import { AppDispatcher } from "./app.dispatcher";
+import { AppStore, AppState } from "./app.store";
 
 @Component({
-  selector: 'ex-app',
+  selector: "ex-app",
   template: `
     <h1>A: {{state?.a}} B: {{state?.b}} C: {{state?.c}}</h1>
     <button (click)="onClickIncrementA()">A +1</button>
@@ -25,18 +25,22 @@ import { AppStore, AppState } from './app.store';
   `
 })
 export class AppComponent {
-
   private state: AppState;
 
-  constructor(private dispatcher: AppDispatcher,
-              private store: AppStore,
-              private actions: AppActions) {
-    this.store.observable.subscribe((state) => {
-      console.log(state);
-      this.state = state;
-    }, (err) => {
-      console.error('Caught the error.', err);
-    });
+  constructor(
+    private dispatcher: AppDispatcher,
+    private store: AppStore,
+    private actions: AppActions
+  ) {
+    this.store.observable.subscribe(
+      state => {
+        console.log(state);
+        this.state = state;
+      },
+      err => {
+        console.error("Caught the error.", err);
+      }
+    );
   }
 
   onClickIncrementA() {
@@ -106,9 +110,8 @@ export class AppComponent {
   onClickSyncThrow() {
     try {
       this.dispatcher.emit(this.actions.syncThrow());
-    } catch(err) {
-      console.error('Caught the error.', err);
+    } catch (err) {
+      console.error("Caught the error.", err);
     }
   }
-
 }

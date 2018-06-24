@@ -1,5 +1,5 @@
-import { Thread } from './thread';
+import { Thread } from "./thread";
 
 export class Threads {
-  [threadId: string]: Thread
+  [threadId: string]: Thread;
 }

@@ -15,7 +15,10 @@ export class Message {
   date: Date;
   isRead: boolean;
 
-  static convertRawMessage(message: RawMessage, currentThreadID: string | undefined): Message {
+  static convertRawMessage(
+    message: RawMessage,
+    currentThreadID: string | undefined
+  ): Message {
     return {
       id: message.id,
       threadId: message.threadId,
@@ -30,9 +33,9 @@ export class Message {
     const timestamp = Date.now();
 
     return {
-      id: 'm_' + timestamp,
+      id: "m_" + timestamp,
       threadId: currentThreadId,
-      authorName: 'Bill', // hard coded for the example
+      authorName: "Bill", // hard coded for the example
       date: new Date(timestamp),
       text: text,
       isRead: true

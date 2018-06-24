@@ -1,7 +1,9 @@
 # Walts
+
 Walts is a library for Angular (>= 2.0.0) to provide the Observer pattern using RxJS.
 
 ## Motivation
+
 Angular is a full stack, but guidance on the state holding is left to the user.
 
 Walts inspired from [flux](https://facebook.github.io/flux/) architecture and [redux](http://redux.js.org/), it provide the order to your Angular application.

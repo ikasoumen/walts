@@ -1,7 +1,4 @@
-import { MessageActions } from './message.actions';
-import { ThreadActions } from './thread.actions';
+import { MessageActions } from "./message.actions";
+import { ThreadActions } from "./thread.actions";
 
-export const actions = [
-  MessageActions,
-  ThreadActions
-];
+export const actions = [MessageActions, ThreadActions];

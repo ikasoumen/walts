@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { Thread } from './domain/thread';
+import { Thread } from "./domain/thread";
 
-import { MessageActions } from './actions/message.actions';
-import { ThreadActions } from './actions/thread.actions';
+import { MessageActions } from "./actions/message.actions";
+import { ThreadActions } from "./actions/thread.actions";
 
-import { AppDispatcher } from './app.dispatcher';
-import { AppStore } from './app.store';
-import { MessageStore } from './message.store';
-import { ThreadStore } from './thread.store';
-import {MessageVM} from "./ui/message.vm";
-import {ThreadVM} from "./ui/thread.vm";
+import { AppDispatcher } from "./app.dispatcher";
+import { AppStore } from "./app.store";
+import { MessageStore } from "./message.store";
+import { ThreadStore } from "./thread.store";
+import { MessageVM } from "./ui/message.vm";
+import { ThreadVM } from "./ui/thread.vm";
 
 @Component({
-  selector: 'fc-app',
+  selector: "fc-app",
   template: `
   <div class="chatapp">
     <div class="thread-section">
@@ -59,33 +59,36 @@ import {ThreadVM} from "./ui/thread.vm";
   `
 })
 export class AppComponent {
-
   private messages: MessageVM[];
   private thread: ThreadVM;
   private threadId: string;
   private threads: ThreadVM[];
   private message: string;
 
-  constructor(private dispatcher: AppDispatcher,
-              private appStore: AppStore,
-              private messageActions: MessageActions,
-              private messageStore: MessageStore,
-              private threadActions: ThreadActions,
-              private threadStore: ThreadStore) {
-    this.appStore.observable.subscribe((state) => {
+  constructor(
+    private dispatcher: AppDispatcher,
+    private appStore: AppStore,
+    private messageActions: MessageActions,
+    private messageStore: MessageStore,
+    private threadActions: ThreadActions,
+    private threadStore: ThreadStore
+  ) {
+    this.appStore.observable.subscribe(state => {
       console.log(state);
     });
-    this.messageStore.getAllForCurrentThread().subscribe((s) => this.messages = s);
-    this.threadStore .getCurrent()            .subscribe((s) => this.thread = s);
-    this.threadStore .getId()                 .subscribe((s) => this.threadId = s);
-    this.threadStore .getAllChrono()          .subscribe((s) => this.threads = s);
+    this.messageStore
+      .getAllForCurrentThread()
+      .subscribe(s => (this.messages = s));
+    this.threadStore.getCurrent().subscribe(s => (this.thread = s));
+    this.threadStore.getId().subscribe(s => (this.threadId = s));
+    this.threadStore.getAllChrono().subscribe(s => (this.threads = s));
   }
 
   ngOnInit() {
     this.dispatcher.emitAll([
       this.messageActions.getAllMessages(),
-      this.threadActions.getAllThreads(),
-    ])
+      this.threadActions.getAllThreads()
+    ]);
   }
 
   onClickThread(thread: Thread) {
@@ -99,8 +102,7 @@ export class AppComponent {
       if (text) {
         this.dispatcher.emit(this.messageActions.createMessage(text));
       }
-      this.message = '';
+      this.message = "";
     }
   }
-
 }

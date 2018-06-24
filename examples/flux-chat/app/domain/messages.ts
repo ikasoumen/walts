@@ -1,5 +1,5 @@
-import { Message } from './message';
+import { Message } from "./message";
 
 export class Messages {
-  [messageId: string]: Message
+  [messageId: string]: Message;
 }
