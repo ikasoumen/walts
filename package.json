@@ -22,12 +22,9 @@
     "typescript": "^2.1.5"
   },
   "main": "dist/index.js",
-  "types": "declares",
   "files": [
     "test",
-    "dist",
-    "dist/index.js",
-    "declares"
+    "dist"
   ],
   "homepage": "https://github.com/crescware/walts",
   "keywords": [
