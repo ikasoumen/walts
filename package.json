@@ -12,9 +12,12 @@
   "devDependencies": {
     "@types/mocha": "^2.2.38",
     "@types/power-assert": "^1.4.29",
+    "husky": "^0.14.3",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^3.2.0",
     "power-assert": "^1.4.2",
+    "prettier": "1.13.5",
+    "pretty-quick": "^1.6.0",
     "rxjs": "^6.0.0",
     "typescript": "^2.1.5"
   },
@@ -46,6 +49,7 @@
   "scripts": {
     "build": "tsc -p .",
     "test": "npm run build && mocha --require intelli-espower-loader --reporter dot ./test/test.js",
-    "typings": "typings install"
+    "typings": "typings install",
+    "precommit": "pretty-quick --staged"
   }
 }
