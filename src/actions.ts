@@ -7,7 +7,7 @@ export type SyncAction<ST extends State> = (state: ST) => ST;
 export type DelayedAction<ST extends State> = (state: ST) => Delayed<ST>;
 export type Action<ST extends State> = SyncAction<ST> | DelayedAction<ST>;
 
-type Executor<ST extends State> = (
+export type Executor<ST extends State> = (
   apply: (
     actionOrActions:
       | Action<ST>

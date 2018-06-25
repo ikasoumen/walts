@@ -4,11 +4,11 @@ import { Action, Delayed, DelayedAction, SyncAction } from "./actions";
 import { State } from "./store";
 import { flatten } from "./utils";
 
-interface SubjectLike<ST> {
+export interface SubjectLike<ST> {
   next: (st: ST) => void;
 }
 
-interface ResultChunk<ST> {
+export interface ResultChunk<ST> {
   result: ST;
   queue: SubjectLike<ST>;
 }

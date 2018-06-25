@@ -21,10 +21,10 @@
     "rxjs": "^6.0.0",
     "typescript": "^2.1.5"
   },
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "files": [
     "test",
-    "dist"
+    "lib"
   ],
   "homepage": "https://github.com/crescware/walts",
   "keywords": [
@@ -44,9 +44,8 @@
     "url": "https://github.com/crescware/walts"
   },
   "scripts": {
-    "build": "tsc -p .",
+    "build": "tsc --declaration --project .",
     "test": "npm run build && mocha --require intelli-espower-loader --reporter dot ./test/test.js",
-    "typings": "typings install",
     "precommit": "pretty-quick --staged"
   }
 }
