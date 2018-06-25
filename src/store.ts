@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs";
 
 import { Dispatcher } from "./dispatcher";
 
-export abstract class State {}
+export interface State {}
 
 export class Store<ST extends State> {
   private _observable: BehaviorSubject<ST>;
